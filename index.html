@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
+
 <body>
 
     <div class="container">
@@ -13,7 +16,11 @@
             Covid-19 Live Update
         </h1>
 
-        <table class="table table-hover">
+        <!-- Dropdown menu -->
+        <label for="country">Country</label><span style="color: red !important; display: inline; float: none;">*</span>
+        <select id="country" name="country" class="form-control"></select>
+
+        <table class="table table-hover mt-5">
             <thead>
                 <tr>
                     <th>Total Cases </th>
@@ -21,46 +28,19 @@
                     <th>Recovered Cases</th>
                 </tr>
             </thead>
+
             <tbody>
-                <tr id="data" ></tr>
+                <tr id="data"></tr>
             </tbody>
         </table>
-        
-        <button class="btn btn-danger btn-block">Refresh Data</button>
+
+        <!-- <button class="btn btn-danger btn-block">Refresh Data</button> -->
 
     </div>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            init();
+    <script src="script.js"></script>
 
-            $('button').click(function(){
-                $("#data").empty();
-                init();
-            });
-
-            function init() {
-                let url = "https://api.covid19api.com/summary"
-
-                let data = ""
-
-                $.get(url, function(data){
-                    console.log(data.Global)
-                    
-                    data = `
-
-                        <td> ${(data.Global.TotalConfirmed)} </td>
-                        <td> ${(data.Global.TotalDeaths)} </td>
-                        <td> ${(data.Global.TotalRecovered)} </td>
-
-                    `
-
-                    $('#data').html(data);
-                });
-            }
-
-        });
-    </script>
 </body>
+
 </html>
