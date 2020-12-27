@@ -14,37 +14,39 @@
 <body>
 
     <div class="container">
-        <h1 class="text-center mt-5">
+        <h1 class="text-center m-5">
             Covid19<span>World</span>
         </h1>
 
-        <!-- Dropdown menu -->
-        <label for="country">Country</label><span style="color: red !important; display: inline; float: none;">*</span>
-        <select id="country" name="country" class="form-control">
-            <option value="" disabled selected>Select Country</option>
-        </select>
+        <div class="col-lg-6 mt-5" id="dataContainer">
+            <!-- Dropdown menu -->
+            <p class="">Search Country here</p>
+            <select id="country" name="country" class="form-control">
+                <option value="" disabled selected>Select Country</option>
+            </select>
 
-        <!-- Cards -->
-        <div class="row mt-4">
-            <span class="datacard col-2">
-                <p>Confirmed</p>
-                <p id="newCases"></p>
-                <p id="totalCases"></p>
-            </span>
-            <span class="datacard col-2">
-                <p>Recovered</p>
-                <p id="newRecovered"></p>
-                <p id="recoveredCases"></p>
-            </span>
-            <span class="datacard col-2">
-                <p>Active</p>
-                <p id="activeCases"></p>
-            </span>
-            <span class="datacard col-2">
-                <p>Deceased</p>
-                <p id="newDeaths"></p>
-                <p id="totalDeaths"></p>
-            </span>
+            <!-- Cards -->
+            <div class="row mt-5 m-4 text-center">
+                <div class="datacard col-3" id="cases">
+                    <p>Confirmed</p>
+                    <p id="newCases"></p>
+                    <p id="totalCases"></p>
+                </div>
+                <div class="datacard col-3" id="recovered">
+                    <p>Recovered</p>
+                    <p id="newRecovered"></p>
+                    <p id="recoveredCases"></p>
+                </div>
+                <div class="datacard col-3" id="active">
+                    <p>Active</p>
+                    <p id="activeCases"></p>
+                </div>
+                <div class="datacard col-3" id="deaths">
+                    <p>Deceased</p>
+                    <p id="newDeaths"></p>
+                    <p id="totalDeaths"></p>
+                </div>
+            </div>
         </div>
 
     </div>
