@@ -7,13 +7,15 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <div class="container">
         <h1 class="text-center mt-5">
-            Covid-19 Live Update
+            Covid19<span>World</span>
         </h1>
 
         <!-- Dropdown menu -->
@@ -22,21 +24,28 @@
             <option value="" disabled selected>Select Country</option>
         </select>
 
-        <table class="table table-hover mt-5">
-            <thead>
-                <tr>
-                    <th>Total Cases </th>
-                    <th>Total Deaths</th>
-                    <th>Recovered Cases</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr id="data"></tr>
-            </tbody>
-        </table>
-
-        <!-- <button class="btn btn-danger btn-block">Refresh Data</button> -->
+        <!-- Cards -->
+        <div class="row mt-4">
+            <span class="datacard col-2">
+                <p>Confirmed</p>
+                <p id="newCases"></p>
+                <p id="totalCases"></p>
+            </span>
+            <span class="datacard col-2">
+                <p>Recovered</p>
+                <p id="newRecovered"></p>
+                <p id="recoveredCases"></p>
+            </span>
+            <span class="datacard col-2">
+                <p>Active</p>
+                <p id="activeCases"></p>
+            </span>
+            <span class="datacard col-2">
+                <p>Deceased</p>
+                <p id="newDeaths"></p>
+                <p id="totalDeaths"></p>
+            </span>
+        </div>
 
     </div>
 
