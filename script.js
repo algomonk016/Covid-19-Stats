@@ -35,15 +35,6 @@ $(document).ready(function(){
             $("#country").change(function(){
                 let countryIdx = $("#country").val();
                 // console.log(Countries[countryIdx]);
-                data = `
-                    <td> ${Countries[countryIdx].TotalConfirmed} </td>
-                    <td> ${Countries[countryIdx].TotalDeaths} </td>
-                    <td> ${Countries[countryIdx].TotalRecovered} </td>
-
-                `;
-
-                // show data
-                $("#data").html(data);
 
                 // displaying datas in cards
                 $('#newCases').html(Countries[countryIdx].NewConfirmed);
@@ -58,8 +49,6 @@ $(document).ready(function(){
                 $('#newDeaths').html(Countries[countryIdx].NewDeaths);
                 $('#totalDeaths').html(Countries[countryIdx].TotalDeaths);
             });
-
         });
     }
-
 });
