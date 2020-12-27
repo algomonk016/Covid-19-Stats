@@ -1,11 +1,6 @@
 $(document).ready(function(){
     init();
 
-    // $('button').click(function(){
-    //     $("#data").empty();
-    //     init();
-    // });  
-
     function init() {
         let url = "https://api.covid19api.com/summary"
 
@@ -21,16 +16,20 @@ $(document).ready(function(){
                 // console.log((idx++)+ " " + element.Country);
             });
 
-            data = `
-                <td> ${data.Global.TotalConfirmed} </td>
-                <td> ${data.Global.TotalDeaths} </td>
-                <td> ${data.Global.TotalRecovered} </td>
-            `;
-            $("#data").html(data);
+            // displaying datas in cards
+            $('#newCases').html(data.Global.NewConfirmed);
+            $('#totalCases').html(data.Global.TotalConfirmed);
 
-            
+            $('#newRecovered').html(data.Global.NewRecovered);
+            $('#recoveredCases').html(data.Global.TotalRecovered);
 
-            // console.log(Countries);
+            let activeCases = data.Global.TotalConfirmed - data.Global.TotalRecovered - data.Global.TotalDeaths;
+            $('#activeCases').html(activeCases);
+
+            $('#newDeaths').html(data.Global.NewDeaths);
+            $('#totalDeaths').html(data.Global.TotalDeaths);
+
+            console.log(Countries);
 
             // get data for the country selected
             $("#country").change(function(){
@@ -45,6 +44,19 @@ $(document).ready(function(){
 
                 // show data
                 $("#data").html(data);
+
+                // displaying datas in cards
+                $('#newCases').html(Countries[countryIdx].NewConfirmed);
+                $('#totalCases').html(Countries[countryIdx].TotalConfirmed);
+
+                $('#newRecovered').html(Countries[countryIdx].NewRecovered);
+                $('#recoveredCases').html(Countries[countryIdx].TotalRecovered);
+
+                activeCases = Countries[countryIdx].TotalConfirmed - Countries[countryIdx].TotalRecovered -Countries[countryIdx].TotalDeaths;
+                $('#activeCases').html(activeCases);
+
+                $('#newDeaths').html(Countries[countryIdx].NewDeaths);
+                $('#totalDeaths').html(Countries[countryIdx].TotalDeaths);
             });
 
         });
