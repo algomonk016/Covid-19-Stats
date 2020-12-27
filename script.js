@@ -4,7 +4,7 @@ $(document).ready(function(){
     // $('button').click(function(){
     //     $("#data").empty();
     //     init();
-    // });
+    // });  
 
     function init() {
         let url = "https://api.covid19api.com/summary"
@@ -15,19 +15,31 @@ $(document).ready(function(){
 
             // adding options in the dropdown menu
             let idx = 0;
-            (data.Countries).forEach(element => {
+            let Countries = data.Countries;
+            (Countries).forEach(element => {
                 $('#country').append(`<option value="${idx++}"> ${element.Country} </option>`);
                 // console.log((idx++)+ " " + element.Country);
             });
 
+            data = `
+                <td> ${data.Global.TotalConfirmed} </td>
+                <td> ${data.Global.TotalDeaths} </td>
+                <td> ${data.Global.TotalRecovered} </td>
+            `;
+            $("#data").html(data);
+
+            
+
+            // console.log(Countries);
+
             // get data for the country selected
             $("#country").change(function(){
                 let countryIdx = $("#country").val();
-                console.log(data.Countries[countryIdx]);
+                // console.log(Countries[countryIdx]);
                 data = `
-                    <td> ${data.Countries[countryIdx].TotalConfirmed} </td>
-                    <td> ${data.Countries[countryIdx].TotalDeaths} </td>
-                    <td> ${data.Countries[countryIdx].TotalRecovered} </td>
+                    <td> ${Countries[countryIdx].TotalConfirmed} </td>
+                    <td> ${Countries[countryIdx].TotalDeaths} </td>
+                    <td> ${Countries[countryIdx].TotalRecovered} </td>
 
                 `;
 
